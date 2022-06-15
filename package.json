@@ -1,0 +1,24 @@
+{
+  "name": "moviedatabase",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JamieHa8794/movieDatabase.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JamieHa8794/movieDatabase/issues"
+  },
+  "homepage": "https://github.com/JamieHa8794/movieDatabase#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
