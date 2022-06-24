@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/JamieHa8794/movieDatabase#readme",
   "devDependencies": {
+    "express": "^4.18.1",
     "nodemon": "^2.0.16"
   }
 }
