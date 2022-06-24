@@ -18004,3 +18004,20 @@ const movieList = [
 
     */
    ]
+
+
+
+   const list = ()=>{
+      return [...movieList]
+   }
+
+   const find = (title)=>{
+      const movie = movieList.find(movie => movie.Series_Title === title)
+      return {...movie};
+   }
+
+
+   module.exports = { 
+    list: list, 
+    find: find 
+  };
