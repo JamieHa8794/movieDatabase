@@ -19,13 +19,14 @@ app.get('/', (req, res, next)=>{
         <html>
             <head>
                 <link rel="stylesheet" href="/style.css" />
+                <nav>
+                <a href='/'>Home</a>
+                <a href='/all'>All Movies</a>
+                <a href='/genres'>Genres</a>
+                </nav>
                 <h1>
                     Movie Database
                 </h1>
-                <nav>
-                <a href='/all'>All Movies</a>
-                <a href='/categories'>Categories</a>
-                </nav>
             </head>
             <body>
             </body>
@@ -39,6 +40,11 @@ app.get('/all', (req, res, next)=>{
     <html>
         <head>
         <link rel="stylesheet" href="/style.css" />
+        <nav>
+        <a href='/'>Home</a>
+        <a href='/all'>All Movies</a>
+        <a href='/genres'>Genres</a>
+        </nav>
         <h1>
             Movies
         </h1>
@@ -49,15 +55,58 @@ app.get('/all', (req, res, next)=>{
                 return(`
                     <li>
                         <img src=${movie.Poster_Link}>
-                        <div className='movie-title'>${movie.Series_Title}</div>
-
+                        <div class='movie-title'>${movie.Series_Title}</div>
                     </li>
                 `)
             }).join('')}
             </ul>
+        <script>
+            
+        </script>
         </body>
     </html>
     `
     res.send(html)
+    
+})
 
+
+app.get('/genres', (req, res, next)=>{
+    const genres = []
+    movieList.forEach(movie =>{
+        const movieGenre = movie.Genre.split(',')
+        movieGenre.forEach(genre =>{
+            if(!genres.includes(genre.trim())){
+                genres.push(genre.trim())
+            }
+        })
+    })
+
+    const html = `
+    <html>
+    <head>
+        <link rel='stylesheet' href='/style.css'/>
+        <nav>
+        <a href='/'>Home</a>
+        <a href='/all'>All Movies</a>
+        <a href='/genres'>Genres</a>
+        </nav>
+        <h1>
+            List by Genres
+        </h1>
+    </head>
+    <body>
+        <ul>
+            ${genres.map(genre =>{
+                return(`
+                    <li>
+                        <a href=${genre}> ${genre} </a>
+                    </li>
+                `)
+            }).join('')}
+        </ul>
+    </body>
+    </html>
+    `
+    res.send(html)
 })

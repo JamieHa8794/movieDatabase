@@ -161,8 +161,6 @@ const movieList = [
       "No_of_Votes": 2067042,
       "Gross": "292,576,195"
     },
-/*
-
     {
       "Poster_Link": "https://m.media-amazon.com/images/M/MV5BMmEzNTkxYjQtZTc0MC00YTVjLTg5ZTEtZWMwOWVlYzY0NWIwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX67_CR0,0,67,98_AL_.jpg",
       "Series_Title": "Fight Club",
@@ -595,6 +593,7 @@ const movieList = [
       "No_of_Votes": 405801,
       "Gross": ""
     },
+    /*
     {
       "Poster_Link": "https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UX67_CR0,0,67,98_AL_.jpg",
       "Series_Title": "Joker",
