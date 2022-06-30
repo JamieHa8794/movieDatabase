@@ -1,5 +1,5 @@
 body{
-    font-family: fantasy;
+    font-family: Tahoma;
 }
 ul{
     display: flex;
@@ -17,4 +17,7 @@ li{
     color: green;
     text-align: center;
     margin-top: 5px;
+}
+.detail-photo{
+    width: 100px;
 }

@@ -53,21 +53,68 @@ app.get('/all', (req, res, next)=>{
             <ul>
             ${movieList.map(movie =>{
                 return(`
-                    <li>
+                    <li id=${movie.Series_Title}>
                         <img src=${movie.Poster_Link}>
-                        <div class='movie-title'>${movie.Series_Title}</div>
+                        <a href='/movies/${movie.Series_Title}' class='movie-title'>${movie.Series_Title}</a>
                     </li>
                 `)
             }).join('')}
             </ul>
-        <script>
+        </body>
+    </html>
+    `
+
+    // const ul = html.document.querySelector('ul')
+    // ul.addEventListener('click', (ev)=>{
+    //     if(ev.target.tagName === 'LI'){
+    //         const movieTitle = ev.target.id
+    //         location.href=`/movie/${movieTitle}`
+    //         console.log('here')
+    //     }
+    // })
+
+    res.send(html)
             
-        </script>
+
+})
+
+app.get('/movies/:title', (req, res, next)=>{
+    const title = req.params.title
+    const movie = movieList.find(movieItem => movieItem.Series_Title === title)
+    const html=`
+    <html>
+        <head>
+            <link rel="stylesheet" href="/style.css" />
+            <nav>
+                <a href='/'>Home</a>
+                <a href='/all'>All Movies</a>
+                <a href='/genres'>Genres</a>
+            </nav>
+            <h1>
+                ${title}
+            </h1>
+        </head>
+        <body>
+            <img class="detail-photo" src=${movie.Poster_Link}/>
+            <div>
+                IMDB Rating: ${movie.IMDB_Rating}
+            </div>
+            <div>
+                Genre: ${movie.Genre}
+            </div>
+            <div>
+                Director: ${movie.Director}
+            </div>
+            <div>
+                Cast: ${movie.Star1},${movie.Star2},${movie.Star3}, ${movie.Star4} 
+            </div>
+            <div class='detail-overview'>
+                Overview: ${movie.Overview}
+            </div>
         </body>
     </html>
     `
     res.send(html)
-    
 })
 
 
