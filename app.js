@@ -63,16 +63,6 @@ app.get('/all', (req, res, next)=>{
         </body>
     </html>
     `
-
-    // const ul = html.document.querySelector('ul')
-    // ul.addEventListener('click', (ev)=>{
-    //     if(ev.target.tagName === 'LI'){
-    //         const movieTitle = ev.target.id
-    //         location.href=`/movie/${movieTitle}`
-    //         console.log('here')
-    //     }
-    // })
-
     res.send(html)
             
 
@@ -100,7 +90,14 @@ app.get('/movies/:title', (req, res, next)=>{
                 IMDB Rating: ${movie.IMDB_Rating}
             </div>
             <div>
-                Genre: ${movie.Genre}
+                Runtime: ${movie.Runtime}
+            </div>
+            <div>
+                Genre: ${movie.Genre.split(', ').map(genre =>{
+                    return(`<a href=/${genre}> ${genre}</a>`)
+                })} 
+                
+                
             </div>
             <div>
                 Director: ${movie.Director}
@@ -154,6 +151,34 @@ app.get('/genres', (req, res, next)=>{
         </ul>
     </body>
     </html>
+    `
+    res.send(html)
+})
+
+app.get('/:genre', (req, res, next) =>{
+    const genre = req.params.genre
+    const genreList = movieList.filter(movie => {
+        if(movie.Genre.includes(genre)){
+            return movie;
+        }
+    })
+    const html = `
+        <html>
+            <head>
+                ${genre}
+            </head>
+            <body>
+                <ul>
+                ${genreList.map(movie =>{
+                    return(`
+                        <li>
+                            ${movie.Series_Title}
+                        </li>
+                    `)
+                }).join('')}
+                </ul>
+            </body>
+        </html>
     `
     res.send(html)
 })
