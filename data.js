@@ -593,7 +593,6 @@ const movieList = [
       "No_of_Votes": 405801,
       "Gross": ""
     },
-    /*
     {
       "Poster_Link": "https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UX67_CR0,0,67,98_AL_.jpg",
       "Series_Title": "Joker",
@@ -3186,6 +3185,7 @@ const movieList = [
       "No_of_Votes": 43885,
       "Gross": ""
     },
+    /*
     {
       "Poster_Link": "https://m.media-amazon.com/images/M/MV5BOGZiM2IwODktNTdiMC00MGU1LWEyZTYtOTk4NTkwYmJkNmI1L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UY98_CR2,0,67,98_AL_.jpg",
       "Series_Title": "Sholay",
@@ -18000,7 +18000,6 @@ const movieList = [
       "No_of_Votes": 51853,
       "Gross": ""
     }
-
     */
    ]
 

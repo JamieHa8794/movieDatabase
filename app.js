@@ -54,7 +54,8 @@ app.get('/all', (req, res, next)=>{
             ${movieList.map(movie =>{
                 return(`
                     <li id=${movie.Series_Title}>
-                        <img src=${movie.Poster_Link}>
+                        <img src=${movie.Poster_Link}
+                        onerror="this.onerror=null;this.src='https://www.cort.com/assets/images/no-image.png';">
                         <a href='/movies/${movie.Series_Title}' class='movie-title'>${movie.Series_Title}</a>
                     </li>
                 `)
@@ -85,7 +86,9 @@ app.get('/movies/:title', (req, res, next)=>{
             </h1>
         </head>
         <body>
-            <img class="detail-photo" src=${movie.Poster_Link}/>
+            <img class="detail-photo" src=${movie.Poster_Link}
+            onerror="this.onerror=null;this.src='https://www.cort.com/assets/images/no-image.png';"
+            />
             <div>
                 IMDB Rating: ${movie.IMDB_Rating}
             </div>
@@ -165,17 +168,29 @@ app.get('/:genre', (req, res, next) =>{
     const html = `
         <html>
             <head>
-                ${genre}
+                <link rel='stylesheet' href='/style.css'/>
+            <nav>
+                <a href='/'>Home</a>
+                <a href='/all'>All Movies</a>
+                <a href='/genres'>Genres</a>
+            </nav>
+                <h1>
+                    Genre: ${genre}
+                </h1>
+                <div>
+                    <a href=/genres>Back to all genres</a>
+                </div>
             </head>
             <body>
                 <ul>
                 ${genreList.map(movie =>{
                     return(`
-                        <li>
-                            ${movie.Series_Title}
-                        </li>
-                    `)
-                }).join('')}
+                    <li id=${movie.Series_Title}>
+                        <img src=${movie.Poster_Link}
+                        onerror="this.onerror=null;this.src='https://www.cort.com/assets/images/no-image.png';">
+                        <a href='/movies/${movie.Series_Title}' class='movie-title'>${movie.Series_Title}</a>
+                    </li>
+                `)}).join('')}
                 </ul>
             </body>
         </html>
